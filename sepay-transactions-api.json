@@ -1,0 +1,169 @@
+{
+    "info": {
+        "name": "SePay Transactions API",
+        "description": "API collection for SePay Transactions endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Transaction Details",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/userapi/transactions/details/{{transaction_id}}",
+                    "host": ["{{base_url}}"],
+                    "path": ["userapi", "transactions", "details", "{{transaction_id}}"]
+                }
+            }
+        },
+        {
+            "name": "Get Transaction List",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/userapi/transactions/list",
+                    "host": ["{{base_url}}"],
+                    "path": ["userapi", "transactions", "list"],
+                    "query": [
+                        {
+                            "key": "account_number",
+                            "value": "{{account_number}}",
+                            "description": "Số tài khoản ngân hàng"
+                        },
+                        {
+                            "key": "transaction_date_min",
+                            "value": "{{transaction_date_min}}",
+                            "description": "Hiển thị các giao dịch được tạo sau thời gian (>=). Định dạng yyyy-mm-dd"
+                        },
+                        {
+                            "key": "transaction_date_max",
+                            "value": "{{transaction_date_max}}",
+                            "description": "Hiển thị các giao dịch được tạo trước thời gian (<=). Định dạng yyyy-mm-dd"
+                        },
+                        {
+                            "key": "since_id",
+                            "value": "{{since_id}}",
+                            "description": "Hiển thị giao dịch từ ID chỉ định (>=)"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "5000",
+                            "description": "Giới hạn giao dịch trả về. Tối đa 5000, mặc định là 5000"
+                        },
+                        {
+                            "key": "reference_number",
+                            "value": "{{reference_number}}",
+                            "description": "Lấy giao dịch theo mã tham chiếu"
+                        },
+                        {
+                            "key": "amount_in",
+                            "value": "{{amount_in}}",
+                            "description": "Lấy giao dịch tiền vào khớp với"
+                        },
+                        {
+                            "key": "amount_out",
+                            "value": "{{amount_out}}",
+                            "description": "Lấy giao dịch tiền ra khớp với"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Transaction Count",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/userapi/transactions/count",
+                    "host": ["{{base_url}}"],
+                    "path": ["userapi", "transactions", "count"],
+                    "query": [
+                        {
+                            "key": "account_number",
+                            "value": "{{account_number}}",
+                            "description": "Số tài khoản ngân hàng"
+                        },
+                        {
+                            "key": "transaction_date_min",
+                            "value": "{{transaction_date_min}}",
+                            "description": "Hiển thị các giao dịch được tạo sau thời gian (>=). Định dạng yyyy-mm-dd"
+                        },
+                        {
+                            "key": "transaction_date_max",
+                            "value": "{{transaction_date_max}}",
+                            "description": "Hiển thị các giao dịch được tạo trước thời gian (<=). Định dạng yyyy-mm-dd"
+                        },
+                        {
+                            "key": "since_id",
+                            "value": "{{since_id}}",
+                            "description": "Hiển thị giao dịch từ ID chỉ định (>=)"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "https://my.sepay.vn"
+        },
+        {
+            "key": "api_token",
+            "value": "your_api_token_here"
+        },
+        {
+            "key": "transaction_id",
+            "value": "48673"
+        },
+        {
+            "key": "account_number",
+            "value": "0071000888888"
+        },
+        {
+            "key": "transaction_date_min",
+            "value": "2023-04-30 08:00:00"
+        },
+        {
+            "key": "transaction_date_max",
+            "value": "2023-05-02 12:00:00"
+        },
+        {
+            "key": "since_id",
+            "value": "49050"
+        },
+        {
+            "key": "reference_number",
+            "value": "171158.050523.060001"
+        },
+        {
+            "key": "amount_in",
+            "value": "16848000"
+        },
+        {
+            "key": "amount_out",
+            "value": "0"
+        }
+    ]
+} 

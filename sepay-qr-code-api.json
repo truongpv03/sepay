@@ -1,0 +1,65 @@
+{
+    "info": {
+        "name": "SePay QR Code API",
+        "description": "API collection for SePay QR Code generation",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Generate QR Code",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/img?acc={{account_number}}&bank={{bank_name}}&amount={{amount}}&des={{description}}",
+                    "host": ["{{base_url}}"],
+                    "path": ["img"],
+                    "query": [
+                        {
+                            "key": "acc",
+                            "value": "{{account_number}}",
+                            "description": "Số tài khoản ngân hàng (bắt buộc)"
+                        },
+                        {
+                            "key": "bank",
+                            "value": "{{bank_name}}",
+                            "description": "Tên ngân hàng (bắt buộc). Xem danh sách tại https://qr.sepay.vn/banks.json"
+                        },
+                        {
+                            "key": "amount",
+                            "value": "{{amount}}",
+                            "description": "Số tiền chuyển khoản (không bắt buộc)"
+                        },
+                        {
+                            "key": "des",
+                            "value": "{{description}}",
+                            "description": "Nội dung chuyển khoản (không bắt buộc)"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "https://qr.sepay.vn"
+        },
+        {
+            "key": "account_number",
+            "value": "0010000000355"
+        },
+        {
+            "key": "bank_name",
+            "value": "Vietcombank"
+        },
+        {
+            "key": "amount",
+            "value": "100000"
+        },
+        {
+            "key": "description",
+            "value": "ung ho quy bao tro tre em"
+        }
+    ]
+} 

@@ -1,0 +1,36 @@
+{
+    "info": {
+        "name": "SePay Webhooks API",
+        "description": "API collection for SePay Webhooks testing and simulation",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Simulate Webhook Call",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{webhook_url}}",
+                    "host": ["{{webhook_url}}"]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"gateway\": \"Vietcombank\",\n    \"transactionDate\": \"2023-08-09 11:59:47\",\n    \"accountNumber\": \"0071000888888\",\n    \"subAccount\": \"VCB0011ABC001\",\n    \"transferType\": \"in\",\n    \"transferAmount\": \"100000.00\",\n    \"accumulated\": \"1777283273.00\",\n    \"code\": null,\n    \"content\": \"DUONG THUY ANH chuyen tien...\",\n    \"referenceCode\": \"677760.050523.080001\",\n    \"description\": \"Payment for Order #123\"\n}"
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "webhook_url",
+            "value": "https://your-domain.com/receiver.php"
+        }
+    ]
+} 

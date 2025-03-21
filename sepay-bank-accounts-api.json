@@ -1,0 +1,170 @@
+{
+    "info": {
+        "name": "SePay Bank Accounts API",
+        "description": "API collection for SePay Bank Accounts endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Bank Account Details",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/userapi/bankaccounts/details/{{bank_account_id}}",
+                    "host": ["{{base_url}}"],
+                    "path": ["userapi", "bankaccounts", "details", "{{bank_account_id}}"]
+                }
+            }
+        },
+        {
+            "name": "Get Bank Account List",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/userapi/bankaccounts/list",
+                    "host": ["{{base_url}}"],
+                    "path": ["userapi", "bankaccounts", "list"],
+                    "query": [
+                        {
+                            "key": "short_name",
+                            "value": "{{short_name}}",
+                            "description": "Tên ngân hàng, tương ứng với trường short_name tại https://qr.sepay.vn/banks.json"
+                        },
+                        {
+                            "key": "last_transaction_date_min",
+                            "value": "{{last_transaction_date_min}}",
+                            "description": "Lọc tài khoản có giao dịch gần nhất sau thời gian (>=). Định dạng yyyy-mm-dd"
+                        },
+                        {
+                            "key": "last_transaction_date_max",
+                            "value": "{{last_transaction_date_max}}",
+                            "description": "Lọc tài khoản có giao dịch gần nhất trước thời gian (<=). Định dạng yyyy-mm-dd"
+                        },
+                        {
+                            "key": "since_id",
+                            "value": "{{since_id}}",
+                            "description": "Hiển thị tài khoản ngân hàng từ ID chỉ định (>=)"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "100",
+                            "description": "Giới hạn tài khoản ngân hàng trả về. Mặc định là 100"
+                        },
+                        {
+                            "key": "accumulated_min",
+                            "value": "{{accumulated_min}}",
+                            "description": "Lọc tài khoản ngân hàng có số dư lớn hơn hoặc bằng (>=)"
+                        },
+                        {
+                            "key": "accumulated_max",
+                            "value": "{{accumulated_max}}",
+                            "description": "Lọc tài khoản ngân hàng có số dư nhỏ hơn hoặc bằng (>=)"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Bank Account Count",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/userapi/bankaccounts/count",
+                    "host": ["{{base_url}}"],
+                    "path": ["userapi", "bankaccounts", "count"],
+                    "query": [
+                        {
+                            "key": "short_name",
+                            "value": "{{short_name}}",
+                            "description": "Tên ngân hàng, tương ứng với trường short_name tại https://qr.sepay.vn/banks.json"
+                        },
+                        {
+                            "key": "last_transaction_date_min",
+                            "value": "{{last_transaction_date_min}}",
+                            "description": "Lọc tài khoản có giao dịch gần nhất sau thời gian (>=). Định dạng yyyy-mm-dd"
+                        },
+                        {
+                            "key": "last_transaction_date_max",
+                            "value": "{{last_transaction_date_max}}",
+                            "description": "Lọc tài khoản có giao dịch gần nhất trước thời gian (<=). Định dạng yyyy-mm-dd"
+                        },
+                        {
+                            "key": "since_id",
+                            "value": "{{since_id}}",
+                            "description": "Hiển thị tài khoản ngân hàng từ ID chỉ định (>=)"
+                        },
+                        {
+                            "key": "accumulated_min",
+                            "value": "{{accumulated_min}}",
+                            "description": "Lọc tài khoản ngân hàng có số dư lớn hơn hoặc bằng (>=)"
+                        },
+                        {
+                            "key": "accumulated_max",
+                            "value": "{{accumulated_max}}",
+                            "description": "Lọc tài khoản ngân hàng có số dư nhỏ hơn hoặc bằng (>=)"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "https://my.sepay.vn"
+        },
+        {
+            "key": "api_token",
+            "value": "your_api_token_here"
+        },
+        {
+            "key": "bank_account_id",
+            "value": "18"
+        },
+        {
+            "key": "short_name",
+            "value": "Vietcombank"
+        },
+        {
+            "key": "last_transaction_date_min",
+            "value": "2023-04-30 08:00:00"
+        },
+        {
+            "key": "last_transaction_date_max",
+            "value": "2023-05-02 12:00:00"
+        },
+        {
+            "key": "since_id",
+            "value": "20"
+        },
+        {
+            "key": "accumulated_min",
+            "value": "1"
+        },
+        {
+            "key": "accumulated_max",
+            "value": "1000000000"
+        }
+    ]
+} 
